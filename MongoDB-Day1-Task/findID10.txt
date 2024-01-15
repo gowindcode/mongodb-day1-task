@@ -1,0 +1,10 @@
+ db.taskProduct.find({id:"10"}).pretty()
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1d7"),
+        "id" : "10",
+        "product_name" : "Generic Wooden Pizza",
+        "product_price" : 84,
+        "product_material" : "Frozen",
+        "product_color" : "indigo"
+}
+>

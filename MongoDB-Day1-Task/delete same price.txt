@@ -1,0 +1,239 @@
+var duplicatePrices = db.taskProduct.aggregate([
+...     {
+...       $group: {
+...         _id: { product_price: "$product_price" },
+...         count: { $sum: 1 },
+...         ids: { $push: "$_id" }
+...       }
+...     },
+...     {
+...       $match: {
+...         count: { $gt: 1 }
+...       }
+...     }
+...   ]);
+>
+>
+>   duplicatePrices.forEach(function(duplicate) {
+...     duplicate.ids.shift();
+...     db.taskProduct.deleteMany({ _id: { $in: duplicate.ids } });
+...   });
+>
+> db.taskProduct.find({productPrice: {$gte:0}}).pretty()
+> db.taskProduct.find({product_price: {$gte:0}}).pretty()
+{
+        "_id" : ObjectId("65a539926a541e265ee0c537"),
+        "id" : "1",
+        "product_name" : "Intelligent Fresh Chips",
+        "product_price" : 655,
+        "product_material" : "Concrete",
+        "product_color" : "mint green"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c538"),
+        "id" : "2",
+        "product_name" : "Practical Fresh Sausages",
+        "product_price" : 911,
+        "product_material" : "Cotton",
+        "product_color" : "indigo"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c539"),
+        "id" : "3",
+        "product_name" : "Refined Steel Car",
+        "product_price" : 690,
+        "product_material" : "Rubber",
+        "product_color" : "gold"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53a"),
+        "id" : "4",
+        "product_name" : "Gorgeous Plastic Pants",
+        "product_price" : 492,
+        "product_material" : "Soft",
+        "product_color" : "plum"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53b"),
+        "id" : "5",
+        "product_name" : "Sleek Cotton Chair",
+        "product_price" : 33,
+        "product_material" : "Fresh",
+        "product_color" : "black"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53c"),
+        "id" : "6",
+        "product_name" : "Awesome Wooden Towels",
+        "product_price" : 474,
+        "product_material" : "Plastic",
+        "product_color" : "orange"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53d"),
+        "id" : "7",
+        "product_name" : "Practical Soft Shoes",
+        "product_price" : 500,
+        "product_material" : "Rubber",
+        "product_color" : "pink"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53e"),
+        "id" : "8",
+        "product_name" : "Incredible Steel Hat",
+        "product_price" : 78,
+        "product_material" : "Rubber",
+        "product_color" : "violet"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53f"),
+        "id" : "9",
+        "product_name" : "Awesome Wooden Ball",
+        "product_price" : 28,
+        "product_material" : "Soft",
+        "product_color" : "azure"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c540"),
+        "id" : "10",
+        "product_name" : "Generic Wooden Pizza",
+        "product_price" : 84,
+        "product_material" : "Frozen",
+        "product_color" : "indigo"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c541"),
+        "id" : "11",
+        "product_name" : "Unbranded Wooden Cheese",
+        "product_price" : 26,
+        "product_material" : "Soft",
+        "product_color" : "black"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c542"),
+        "id" : "12",
+        "product_name" : "Unbranded Plastic Salad",
+        "product_price" : 89,
+        "product_material" : "Wooden",
+        "product_color" : "pink"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c543"),
+        "id" : "13",
+        "product_name" : "Gorgeous Cotton Keyboard",
+        "product_price" : 37,
+        "product_material" : "Concrete",
+        "product_color" : "sky blue"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c544"),
+        "id" : "14",
+        "product_name" : "Incredible Steel Shirt",
+        "product_price" : 54,
+        "product_material" : "Metal",
+        "product_color" : "white"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c545"),
+        "id" : "15",
+        "product_name" : "Ergonomic Cotton Hat",
+        "product_price" : 43,
+        "product_material" : "Rubber",
+        "product_color" : "mint green"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c546"),
+        "id" : "16",
+        "product_name" : "Small Soft Chair",
+        "product_price" : 47,
+        "product_material" : "Cotton",
+        "product_color" : "teal"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c547"),
+        "id" : "17",
+        "product_name" : "Incredible Metal Car",
+        "product_price" : 36,
+        "product_material" : "Fresh",
+        "product_color" : "indigo"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c548"),
+        "id" : "18",
+        "product_name" : "Licensed Plastic Bacon",
+        "product_price" : 88,
+        "product_material" : "Steel",
+        "product_color" : "yellow"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c549"),
+        "id" : "19",
+        "product_name" : "Intelligent Cotton Chips",
+        "product_price" : 46,
+        "product_material" : "Soft",
+        "product_color" : "azure"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c54b"),
+        "id" : "21",
+        "product_name" : "Unbranded Granite Chicken",
+        "product_price" : 90,
+        "product_material" : "Metal",
+        "product_color" : "gold"
+}
+Type "it" for more
+> it
+{
+        "_id" : ObjectId("65a539926a541e265ee0c54c"),
+        "id" : "22",
+        "product_name" : "Ergonomic Soft Hat",
+        "product_price" : 99,
+        "product_material" : "Rubber",
+        "product_color" : "black"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c54d"),
+        "id" : "23",
+        "product_name" : "Intelligent Steel Pizza",
+        "product_price" : 95,
+        "product_material" : "Cotton",
+        "product_color" : "azure"
+}
+{
+        "_id" : ObjectId("65a539926a541e265ee0c54f"),
+        "id" : "25",
+        "product_name" : "Licensed Steel Car",
+        "product_price" : 20,
+        "product_material" : "Cotton",
+        "product_color" : "indigo"
+}
+> db.taskProduct.find({product_price: {$eq:20}}).prettry()
+uncaught exception: TypeError: db.taskProduct.find(...).prettry is not a function :
+@(shell):1:1
+> db.taskProduct.find({product_price: {$eq: 20}}).pretty()
+{
+        "_id" : ObjectId("65a539926a541e265ee0c54f"),
+        "id" : "25",
+        "product_name" : "Licensed Steel Car",
+        "product_price" : 20,
+        "product_material" : "Cotton",
+        "product_color" : "indigo"
+}
+> db.taskProduct.find({product_price: {$eq: 500}}).pretty()
+{
+        "_id" : ObjectId("65a539926a541e265ee0c53d"),
+        "id" : "7",
+        "product_name" : "Practical Soft Shoes",
+        "product_price" : 500,
+        "product_material" : "Rubber",
+        "product_color" : "pink"
+}
+> db.taskProduct.find({product_price: {$eq: 690}}).pretty()
+{
+        "_id" : ObjectId("65a539926a541e265ee0c539"),
+        "id" : "3",
+        "product_name" : "Refined Steel Car",
+        "product_price" : 690,
+        "product_material" : "Rubber",
+        "product_color" : "gold"
+}

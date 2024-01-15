@@ -1,0 +1,43 @@
+
+> db.taskProduct.find({product_price: {$gte:400, $lt:800}}).pretty()
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1ce"),
+        "id" : "1",
+        "product_name" : "Intelligent Fresh Chips",
+        "product_price" : 655,
+        "product_material" : "Concrete",
+        "product_color" : "mint green"
+}
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1d0"),
+        "id" : "3",
+        "product_name" : "Refined Steel Car",
+        "product_price" : 690,
+        "product_material" : "Rubber",
+        "product_color" : "gold"
+}
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1d1"),
+        "id" : "4",
+        "product_name" : "Gorgeous Plastic Pants",
+        "product_price" : 492,
+        "product_material" : "Soft",
+        "product_color" : "plum"
+}
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1d3"),
+        "id" : "6",
+        "product_name" : "Awesome Wooden Towels",
+        "product_price" : 474,
+        "product_material" : "Plastic",
+        "product_color" : "orange"
+}
+{
+        "_id" : ObjectId("65a191a152a4de41d4ebe1d4"),
+        "id" : "7",
+        "product_name" : "Practical Soft Shoes",
+        "product_price" : 500,
+        "product_material" : "Rubber",
+        "product_color" : "pink"
+}
+>
